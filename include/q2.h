@@ -19,7 +19,7 @@ namespace q2
         size_t alkhol;
     };
 
-    std::vector<Patient> read_file(std::string filename)
+    static std::vector<Patient> read_file(std::string filename)
     {
         std::vector<Patient> data{};
         std::stringstream filestream{};
@@ -43,13 +43,11 @@ namespace q2
 
         return data;
     }
-    bool comp(Patient a, Patient b)
+    static void sort(std::vector<Patient> &patients)
     {
-        return (3 * a.age) + (5 * a.smokes) + (2 * a.area_q) + (4 * a.alkhol) > (3 * b.age) + (5 * b.smokes) + (2 * b.area_q) + (4 * b.alkhol);
-    }
-    void sort(std::vector<Patient> &patients)
-    {
-        std::sort(patients.begin(), patients.end(), comp);
+        std::sort(patients.begin(), patients.end(),
+                  [](Patient a, Patient b)
+                  { return (3 * a.age) + (5 * a.smokes) + (2 * a.area_q) + (4 * a.alkhol) > (3 * b.age) + (5 * b.smokes) + (2 * b.area_q) + (4 * b.alkhol); });
     }
 }
 

@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <queue>
+#include <string>
 #include <vector>
 
 namespace q3
@@ -14,20 +15,9 @@ namespace q3
         size_t connections;
         size_t connection_times;
         size_t price;
-        Flight(std::string flight_number,
-               size_t duration,
-               size_t connections,
-               size_t connection_times,
-               size_t price)
-            : flight_number{flight_number},
-              duration{duration},
-              connections{connections},
-              connection_times{connection_times},
-              price{price} {}
     };
-    size_t time_cal(std::string time)
+    static auto gather_flights(std::string filename)
     {
-        return 0;
     }
 }
 #endif // Q3_H

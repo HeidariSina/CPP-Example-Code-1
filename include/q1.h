@@ -6,7 +6,7 @@
 namespace q1
 {
     template <typename T, typename Fun>
-    double gradient_descent(T initial_value, double step_size, Fun func = Fun{})
+    static double gradient_descent(T initial_value, double step_size, Fun func = Fun{})
     {
         double Dispute{step_size * ((func(initial_value) - func(initial_value - 0.001)) / 0.001)};
         while (std::abs(Dispute) >= 0.000001)
