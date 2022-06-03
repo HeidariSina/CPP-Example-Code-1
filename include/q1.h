@@ -5,13 +5,13 @@
 
 namespace q1
 {
-    template <typename T, typename Func>
-    double gradient_descent(T initial_value, double step_size, Func func = Func{})
+    template <typename T, typename Fun>
+    double gradient_descent(T initial_value, double step_size, Fun func = Fun{})
     {
-        double Dispute{step_size * ((func(initial_value) - func(initial_value - 0.001)) / 0.005)};
+        double Dispute{step_size * ((func(initial_value) - func(initial_value - 0.001)) / 0.001)};
         while (std::abs(Dispute) >= 0.000001)
         {
-            Dispute = step_size * ((func(initial_value) - func(initial_value - 0.001)) / 0.005);
+            Dispute = step_size * ((func(initial_value) - func(initial_value - 0.001)) / 0.001);
             initial_value = initial_value - Dispute;
         }
         return initial_value;
