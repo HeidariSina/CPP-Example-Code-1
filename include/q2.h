@@ -26,19 +26,19 @@ namespace q2
         std::ifstream file(filename);
         filestream << file.rdbuf();
         std::string filetxt = filestream.str();
-        std::regex pattern(R"((\w+)\ ?,(\w+)\ ?,(\d+)\,(\d+)\,(\d+)\,(\d+))");
-        std::smatch match;
-        while (std::regex_search(filetxt, match, pattern))
+        std::regex model(R"((\w+)\ ?,(\w+)\ ?,(\d+)\,(\d+)\,(\d+)\,(\d+))");
+        std::smatch find;
+        while (std::regex_search(filetxt, find, model))
         {
             Patient pan{};
-            std::string fname{match[1]}, lname{match[2]};
+            std::string fname{find[1]}, lname{find[2]};
             pan.name = fname + " " + lname;
-            pan.age = static_cast<size_t>(std::stoi(match[3]));
-            pan.smokes = static_cast<size_t>(std::stoi(match[4]));
-            pan.area_q = static_cast<size_t>(std::stoi(match[5]));
-            pan.alkhol = static_cast<size_t>(std::stoi(match[6]));
+            pan.age = std::stoi(find[3]);
+            pan.smokes = std::stoi(find[4]);
+            pan.area_q = std::stoi(find[5]);
+            pan.alkhol = std::stoi(find[6]);
             data.push_back(pan);
-            filetxt = match.suffix().str();
+            filetxt = find.suffix().str();
         }
 
         return data;
