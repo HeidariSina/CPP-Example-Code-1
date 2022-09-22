@@ -1,11 +1,3 @@
-# Advanced Programming - HW6
-<p  align="center"> <b>Homework 6 - Spring 2022 Semester <br> Deadline: Thursday khordad 12th - 11:59 pm</b> </p>
-
-## Outline
-In this homework, we are going to Solve 4 questions using functions in the C++ STL library. Read each question carefully and write down your code.
-
-</br>
-
 # Question 1
 In this question, we want to implement the gradient descent algorithm in an STL way. As you know in gradient descent we aim to find where is the minimum of a function by moving in a way that our function is decreasing, like in the picture below:
 
